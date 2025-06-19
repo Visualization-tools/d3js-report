@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Visualizaciones D3.js</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
+        h1 { color: #333; }
+        .visualization { margin: 50px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        svg { display: block; margin: auto; background: #eaeaea; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+<h1>Reporte de Visualizaciones con D3.js</h1>
+<p>Este reporte incluye las 5 visualizaciones desarrolladas durante la clase, siguiendo las instrucciones del curso.</p>
+
+<!-- Visualización 1 -->
+<div class="visualization">
+    <h2>Visualización 1: Figura de Lissajous animada</h2>
+    <p>Esta animación muestra una figura de Lissajous generada con dos frecuencias sinusoidales combinadas.</p>
+    <svg id="lissajous1" width="400" height="400"></svg>
+</div>
+
+<script>
+(function() {
+  function makeLissajous() {
+    var svg = d3.select("#lissajous1");
+    var a = 1.9, b = 3.2;
+    var omega = 2 * Math.PI / 10000;
+    var prvX = 200 + 150, prvY = 200;
+    var timer = d3.timer(function(t) {
+      var phi = omega * t;
+      var crrX = 200 + 150 * Math.cos(a * phi);
+      var crrY = 200 + 150 * Math.sin(b * phi);
+      svg.selectAll("line")
+        .each(function() { this.bogus_opacity *= 0.99; })
+        .attr("stroke-opacity", function() { return this.bogus_opacity; })
+        .filter(function() { return this.bogus_opacity < 0.05; })
+        .remove();
+      svg.append("line")
+        .each(function() { this.bogus_opacity = 1.0; })
+        .attr("x1", prvX).attr("y1", prvY)
+        .attr("x2", crrX).attr("y2", crrY)
+        .attr("stroke", "green").attr("stroke-width", 2);
+      prvX = crrX;
+      prvY = crrY;
+      if (t > 60000) { timer.stop(); }
+    });
+  }
+  makeLissajous();
+})();
+</script>
+
+<!-- Visualización 2 -->
+<div class="visualization">
+    <h2>Visualización 2: [Título de la segunda visualización]</h2>
+    <p>[Descripción breve de la visualización 2]</p>
+    <svg id="viz2" width="400" height="400"></svg>
+    <script>
+        // Aquí irá el código D3.js de la segunda visualización
+    </script>
+</div>
+
+<!-- Visualización 3 -->
+<div class="visualization">
+    <h2>Visualización 3: [Título de la tercera visualización]</h2>
+    <p>[Descripción breve de la visualización 3]</p>
+    <svg id="viz3" width="400" height="400"></svg>
+    <script>
+        // Aquí irá el código D3.js de la tercera visualización
+    </script>
+</div>
+
+<!-- Visualización 4 -->
+<div class="visualization">
+    <h2>Visualización 4: [Título de la cuarta visualización]</h2>
+    <p>[Descripción breve de la visualización 4]</p>
+    <svg id="viz4" width="400" height="400"></svg>
+    <script>
+        // Aquí irá el código D3.js de la cuarta visualización
+    </script>
+</div>
+
+<!-- Visualización 5 -->
+<div class="visualization">
+    <h2>Visualización 5: [Título de la quinta visualización]</h2>
+    <p>[Descripción breve de la visualización 5]</p>
+    <svg id="viz5" width="400" height="400"></svg>
+    <script>
+        // Aquí irá el código D3.js de la quinta visualización
+    </script>
+</div>
+
+</body>
+</html>
