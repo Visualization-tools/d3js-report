@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard D3.js - Final Project</title>
+    <title>Final Project D3.js - Neon Dashboard</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <style>
         body {
@@ -53,17 +53,17 @@
 <body>
     <div class="dashboard">
         <div class="header">
-            <h1> Final project: Visualizations D3.js </h1>
+            <h1>Final Project: D3.js Neon Visualizations</h1>
             <p>By Janeth Valdivia</p>
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 1: Coordenadas Neon</h2>
+            <h2>Visualization 1: Real-Time Coordinates</h2>
             <svg id="coords" width="400" height="400"></svg>
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 2: Interactive Brush Glow</h2>
+            <h2>Visualization 2: Interactive Brush Glow</h2>
             <div class="flex-row">
               <svg id="brush1" width="400" height="400"></svg>
               <svg id="brush2" width="400" height="400"></svg>
@@ -71,23 +71,23 @@
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 3: Drag & Drop RGB</h2>
+            <h2>Visualization 3: Drag & Drop RGB</h2>
             <svg id="dragdrop" width="600" height="300"></svg>
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 4: Stagger Transition Neon</h2>
+            <h2>Visualization 4: Stagger Transition Neon</h2>
             <svg id="stagger" width="600" height="400"></svg>
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 5: Lissajous Glow</h2>
+            <h2>Visualization 5: Lissajous Glow</h2>
             <svg id="lissajous" width="400" height="400"></svg>
         </div>
     </div>
 
     <div style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #66FFFF; text-shadow: 0 0 10px #66FFFF;">
-        © 2025 Janeth Valdivia - Project developed for Data Visualization with D3.js
+        © 2025 Janeth Valdivia - Developed for Data Visualization with D3.js
     </div>
 
 <script>
@@ -182,9 +182,9 @@ function makeDragDrop() {
   drag(d3.select("#dragdrop").selectAll("circle"));
 }
 var svgDrag = d3.select("#dragdrop");
-svgDrag.append("circle").attr("cx",100).attr("cy",150).attr("r",30).attr("fill","#FF66C4").attr("filter", "url(#neonGlow)");
-svgDrag.append("circle").attr("cx",300).attr("cy",150).attr("r",30).attr("fill","#66FFFF").attr("filter", "url(#neonGlow)");
-svgDrag.append("circle").attr("cx",500).attr("cy",150).attr("r",30).attr("fill","#66FF99").attr("filter", "url(#neonGlow)");
+svgDrag.append("circle").attr("cx",100).attr("cy",150).attr("r",30).attr("fill","#FF0000");
+svgDrag.append("circle").attr("cx",300).attr("cy",150).attr("r",30).attr("fill","#00FF00");
+svgDrag.append("circle").attr("cx",500).attr("cy",150).attr("r",30).attr("fill","#0000FF");
 makeDragDrop();
 
 function makeStagger() {
