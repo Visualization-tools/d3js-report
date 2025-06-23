@@ -123,8 +123,12 @@ function coordsPixels() {
     
   svg.on('mousemove', function() {
   var pt = d3.mouse(this);
-  txt.attr('x', 10+pt[0]).attr('y', 10+pt[1])
-    .text(pt[0].toFixed(0) + ',' + pt[1].toFixed(0));
+  var x = pt[0] - 200;  // traslación
+  var y = 200 - pt[1];  // invertimos Y
+
+  txt.attr('x', pt[0] + 10)
+     .attr('y', pt[1] - 10)
+     .text("(" + x + ", " + y + ")");
 });
 }
 coordsPixels();
