@@ -55,7 +55,7 @@
     <div class="dashboard">
         <div class="header">
             <h1>Proyecto Final: Visualizaciones D3.js</h1>
-            <h2>Janeth Valdivia</h2>
+            <h2> By Janeth Valdivia</h2>
         </div>
 
         <div class="chart-container">
@@ -120,11 +120,12 @@ function coordsPixels() {
     .attr("x2", 200).attr("y2", 400)
     .attr("stroke", "#2c3e50")
     .attr("stroke-width", 2);
+    
   svg.on('mousemove', function() {
-    var pt = d3.mouse(this);
-    txt.attr('x', 10+pt[0]).attr('y', 10+pt[1])
-      .text(pt[0].toFixed(0) + ',' + pt[1].toFixed(0));
-  });
+  var pt = d3.mouse(this);
+  txt.attr('x', 10+pt[0]).attr('y', 10+pt[1])
+    .text(pt[0].toFixed(0) + ',' + pt[1].toFixed(0));
+});
 }
 coordsPixels();
 
