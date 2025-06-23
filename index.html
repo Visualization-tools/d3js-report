@@ -8,7 +8,6 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             background: #000;
             color: #fff;
             min-height: 100vh;
@@ -18,17 +17,14 @@
         .dashboard {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
             background: rgba(20, 20, 20, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
         .header {
             text-align: center;
             margin-bottom: 40px;
-            color: #2c3e50;
             color: #00ffff;
         }
         .header h1 {
@@ -71,7 +67,7 @@
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 2: Interactive Brush Visualization</h2>
+           
             <h2>Visualización 2: Interactive Brush Neon</h2>
             <svg id="brush1" width="400" height="400"></svg>
             <svg id="brush2" width="400" height="400"></svg>
@@ -83,20 +79,20 @@
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 4: Stagger Transition</h2>
+         
             <h2>Visualización 4: Stagger Transition Neon</h2>
             <svg id="stagger" width="600" height="400"></svg>
         </div>
 
         <div class="chart-container">
-            <h2>Visualización 5: Animación de Lissajous</h2>
+            
             <h2>Visualización 5: Lissajous Neon</h2>
             <svg id="lissajous" width="400" height="400"></svg>
         </div>
     </div>
 
 <script>
-// Visualización 1: Coordenadas con cuadrícula
+
 // Visualización 1: Plano cartesiano con fondo negro y paleta neon
 function coordsPixels() {
   var svg = d3.select('#coords')
@@ -252,7 +248,7 @@ function makeLissajous() {
       .each(function() { this.bogus_opacity = 1.0; })
       .attr("x1", prvX).attr("y1", prvY)
       .attr("x2", crrX).attr("y2", crrY)
-      .attr("stroke", "green").attr("stroke-width", 2);
+      .attr("stroke", "#00ff00").attr("stroke-width", 2);
     prvX = crrX;
     prvY = crrY;
     if (t > 120000) { timer.stop(); }
