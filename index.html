@@ -151,24 +151,31 @@ function makeBrush() {
 }
 makeBrush();
 
-// Visualización 3: Drag & Drop Neon
+// Visualización 3: Drag & Drop Neon (colores base RGB)
 function makeDragDrop() {
-  var widget, color;
-  var drag = d3.drag().on("start", function() {
-    color = d3.select(this).attr("fill");
-    widget = d3.select(this).attr("fill", "#ffff00");
-  }).on("drag", function() {
-    var pt = d3.mouse(this);
-    widget.attr("cx", pt[0]).attr("cy", pt[1]);
-  }).on("end", function() {
-    widget.attr("fill", color);
-  });
+  var widget, originalColor;
+  
+  var drag = d3.drag()
+    .on("start", function() {
+      originalColor = d3.select(this).attr("fill");
+      widget = d3.select(this).attr("fill", "#ffff00"); // Cambia a amarillo mientras lo arrastras
+    })
+    .on("drag", function() {
+      var pt = d3.mouse(this);
+      widget.attr("cx", pt[0]).attr("cy", pt[1]);
+    })
+    .on("end", function() {
+      widget.attr("fill", originalColor); // Regresa a su color original
+    });
+
   drag(d3.select("#dragdrop").selectAll("circle"));
 }
+
 var svgDrag = d3.select("#dragdrop");
-svgDrag.append("circle").attr("cx",100).attr("cy",150).attr("r",30).attr("fill","#ff00ff");
-svgDrag.append("circle").attr("cx",300).attr("cy",150).attr("r",30).attr("fill","#00ffff");
-svgDrag.append("circle").attr("cx",500).attr("cy",150).attr("r",30).attr("fill","#ffaa00");
+svgDrag.append("circle").attr("cx", 100).attr("cy", 150).attr("r", 30).attr("fill", "#ff0000");  // rojo
+svgDrag.append("circle").attr("cx", 300).attr("cy", 150).attr("r", 30).attr("fill", "#00ff00");  // verde
+svgDrag.append("circle").attr("cx", 500).attr("cy", 150).attr("r", 30).attr("fill", "#0000ff");  // azul
+
 makeDragDrop();
 
 // Visualización 4: Stagger Neon
@@ -210,7 +217,7 @@ function makeLissajous() {
       .each(function() { this.bogus_opacity = 1.0; })
       .attr("x1", prvX).attr("y1", prvY)
       .attr("x2", crrX).attr("y2", crrY)
-      .attr("stroke", "#00ff00").attr("stroke-width", 2);
+      .attr("stroke", "#ee00ff").attr("stroke-width", 2);
     prvX = crrX;
     prvY = crrY;
     if (t > 120000) { timer.stop(); }
