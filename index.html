@@ -107,13 +107,15 @@ function coordsPixels() {
     svg.append("line")
       .attr("x1", x).attr("y1", 0)
       .attr("x2", x).attr("y2", 400)
-      .attr("stroke", "#ccc");
+      .attr("stroke", "#333");
+      .attr("stroke", "#00ffff")
+      .attr("stroke-opacity", 0.1)
   }
   for (var y = 0; y <= 400; y += gridSize) {
     svg.append("line")
       .attr("x1", 0).attr("y1", y)
       .attr("x2", 400).attr("y2", y)
-      .attr("stroke", "#ccc");
+      .attr("stroke", "#333");
   }
     
   // Dibujar eje X central
